@@ -1,0 +1,14 @@
+consul1:
+  build: .
+  command: agent -server -bootstrap-expect 3 -data-dir /tmp/consul -log-level debug
+  links:
+    - consul2:consul2
+    - consul3:consul3
+
+consul2:
+  build: .
+  command: agent -server -bootstrap-expect 3 -data-dir /tmp/consul -log-level debug
+
+consul3:
+  build: .
+  command: agent -server -bootstrap-expect 3 -data-dir /tmp/consul -log-level debug
